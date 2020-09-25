@@ -43,7 +43,7 @@ with open('jobs.csv', mode='w', newline='') as jobs:
         if any(x in position.lower() for x in position_keywords):
             location = container.div.p.text.strip()
             if any(y in location for y in location_keywords):
-                location.replace(location_keywords, '')
+                location.replace(location_keywords[0], '')
             employer = container.find("p", {"class": "list--item--details--info--work"})
             url_to_offer = container.div.h2.a["href"]
             if employer != None:
